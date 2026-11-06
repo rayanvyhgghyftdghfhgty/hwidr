@@ -69,21 +69,92 @@
       transform: translateY(-2px);
     }
 
-    .cart {
+    .shop {
       width: min(94%, 1200px);
       margin: 0 auto 60px;
-      padding: 60px 20px;
+      padding: clamp(40px, 6vw, 60px) 20px;
       background: var(--card);
       border-radius: 20px;
       text-align: center;
     }
 
-    .cart h2 {
+    .shop h2 {
       font-size: clamp(24px, 4vw, 36px);
       margin-bottom: 12px;
     }
 
-    .cart p { color: var(--muted); }
+    .shop .sub {
+      color: var(--muted);
+      margin-bottom: 36px;
+      font-size: clamp(14px, 2vw, 17px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 26px 22px;
+      background: #0e2148;
+      border: 1px solid rgba(57, 133, 255, 0.35);
+      border-radius: 16px;
+      text-align: left;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .item:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .item .rank {
+      align-self: flex-start;
+      padding: 4px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #8fbcff;
+      background: rgba(57, 133, 255, 0.15);
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+    }
+
+    .item h3 { font-size: 20px; }
+
+    .item ul {
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .item li { padding: 3px 0; }
+    .item li::before { content: "▸ "; color: var(--accent); }
+
+    .item .price {
+      margin-top: auto;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .item .btn {
+      margin-top: 0;
+      padding: 12px;
+      width: 100%;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    .note {
+      margin-top: 30px;
+      font-size: 13px;
+      color: var(--muted);
+    }
   </style>
 </head>
 <body>
@@ -94,9 +165,65 @@
     <a class="btn" href="#cart">DÉCOUVRIR</a>
   </section>
 
-  <section class="cart" id="cart">
-    <h2>Bientôt disponible</h2>
-    <p>Nos produits arrivent prochainement.</p>
+  <section class="shop" id="cart">
+    <h2>VALO ACCOUNT</h2>
+    <p class="sub">Comptes prêts à jouer — livraison immédiate après paiement.</p>
+
+    <div class="grid">
+      <article class="item">
+        <span class="rank">DIAMOND 1</span>
+        <h3>Compte Valo #01</h3>
+        <ul>
+          <li>Rang : Diamond 1</li>
+          <li>35 skins</li>
+          <li>Server EU</li>
+          <li>Email modifiable</li>
+        </ul>
+        <div class="price">24,99 €</div>
+        <a class="btn" href="#">Acheter</a>
+      </article>
+
+      <article class="item">
+        <span class="rank">ASCENDANT 2</span>
+        <h3>Compte Valo #02</h3>
+        <ul>
+          <li>Rang : Ascendant 2</li>
+          <li>60 skins</li>
+          <li>Server EU</li>
+          <li>Email modifiable</li>
+        </ul>
+        <div class="price">34,99 €</div>
+        <a class="btn" href="#">Acheter</a>
+      </article>
+
+      <article class="item">
+        <span class="rank">IMMORTAL 1</span>
+        <h3>Compte Valo #03</h3>
+        <ul>
+          <li>Rang : Immortal 1</li>
+          <li>110 skins</li>
+          <li>Server EU</li>
+          <li>Email modifiable</li>
+        </ul>
+        <div class="price">44,99 €</div>
+        <a class="btn" href="#">Acheter</a>
+      </article>
+
+      <article class="item">
+        <span class="rank">RADIANT</span>
+        <h3>Compte Valo #04</h3>
+        <ul>
+          <li>Rang : Radiant</li>
+          <li>180 skins</li>
+          <li>Server EU</li>
+          <li>Email modifiable</li>
+        </ul>
+        <div class="price">69,99 €</div>
+        <a class="btn" href="#">Acheter</a>
+      </article>
+    </div>
+
+    <p class="note">Prix et rangs = exemples. Remplace-les dans chaque bloc .item, et branche tes vrais liens d'achat (Discord, paiement) sur les href="#" des boutons Acheter.</p>
   </section>
 
 </body>
